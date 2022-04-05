@@ -10,8 +10,9 @@
   - `coda, version 0.19-4`
   - `jtools, version 2.1.4 `
   - `dplyr, version 1.0.8`
-  - `ggplot2 version 3.3.5`
+  - `ggplot2, version 3.3.5`
   - `latex2exp, version 0.9.4`
   - `ggpubr, version 0.4.0`
+  - `kableExtra version 1.3.4`
 
 - `JAGS` can be downloaded from https://mcmc-jags.sourceforge.io/
