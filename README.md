@@ -1,4 +1,4 @@
-# Master's Thesis Repository 
+# Master's Thesis Research Archive
 
 **(NOTE: THE RESEARCH IS STILL IN PROGRESS, THE CODE  MAY NOT EXACTLY REPLICATE THE FINAL VERSION)**
 
