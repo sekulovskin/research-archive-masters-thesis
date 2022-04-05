@@ -74,7 +74,7 @@ this folder contains the programmed wrapper function around `bain`, for testing 
 
 ## Ethics:
 
-All the data used is simulated. The research protocol has been approved by the Ethics Committee of the Faculty of Social and Behavioural Sciences at Utrecht University
+All the data is simulated. The research protocol has been approved by the Ethics Committee of the Faculty of Social and Behavioural Sciences at Utrecht University
 
 
 
