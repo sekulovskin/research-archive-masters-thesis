@@ -1,6 +1,6 @@
 # Master's Thesis Repository 
 
-**(NOTE: THIS PAPER IS STILL IN PROGRESS, THE CODE  MAY NOT EXACTLY REPLICATE THE FINAL VERSION)**
+**(NOTE: THE RESEARCH IS STILL IN PROGRESS, THE CODE  MAY NOT EXACTLY REPLICATE THE FINAL VERSION)**
 
 ***A default Bayes Factor for Null Hypothesis Bayesian Testing in the context of Two-level Models***
 Department of Methodology and Statistics, Utrecht University, the Netherlands.
