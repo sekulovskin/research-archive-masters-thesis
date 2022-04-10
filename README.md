@@ -14,11 +14,14 @@ This paper proposes a default Bayes Factor with clear operating characteristics 
 
 ### `Data` contains all `csv` files produced by the code given in the `scripts` folder:
 
-   - `effectve-sample-size.csv` contains the results presented in the Table 1 of the paper, regarding the effetvie sample size
+   - `effectve-sample-size.csv` contains the results presented in the Table 1 of the paper, regarding the effective sample size
    - `sensitivity.csv` contains the results from the sensitivity analysis presented in Figure 1 and in Appendix B;
-   - `combined_BF.csv` contains the results from the simulation study presented in Figures 2 and 3 (using FMLE);
-   - `simulation-FMLE.scv` containts the summary statistics from the simulation using models with FMLE (Appendix C1);
-   - `simulation-RMLE.scv` containts the summary statistics from the simulation using models with RMLE (Appendix C2);
+   - `combined_BF.csv` contains the results from the simulation study presented in Figures 2 and 3 (using FMLE and MI-based N_eff);
+   - `simulation-FMLE.csv` contains the summary statistics from the simulation using models with FMLE (Appendix C1, Table 5);
+   - `simulation_nlvl1.csv` contains the summary statistics from the simulation using models with FMLE and N_level1 (Appendix C2, Table 6)
+   - `simulation_nlvl2.csv` contains the summary statistics from the simulation using models with FMLE and N_level2 (Appendix C2, Table 7)
+   - `simulation_n-icc.csv` contains the summary statistics from the simulation using models with FMLE and ICC-based N_eff (Appendix C2, Table 8)
+   - `simulation-RMLE.scv` contains the summary statistics from the simulation using models with RMLE and MI-based N_eff (Appendix C3, Table 9);
    - `popular.sav` contains a data set used to test the `wrapper function` available from Hox, Moerbeek, & Van de Schoot, (2017)
    
 Everything marked with '*' does not need to be run:
@@ -52,8 +55,10 @@ the scripts within each separate folder should be run in the order specified her
     - `simulation-data.R`
     - `simulation-mi-neff.R`
     - `simulation-BFs-FMLE.R`
-    - `simulation-BFs-RMLE.R`
-    - `simulation-summaries.R`
+    - `simulation-BFs-different-sample-sizes.R`
+    - `simulation-BFs-FMLE.R`
+    - `simulation-summaries-different-sample-sizes.R`
+    - `simulation-summaries-RMLE.R`
   
     Additional*:
     
@@ -63,7 +68,8 @@ the scripts within each separate folder should be run in the order specified her
     
   - r-squared contains code that explains how the value for the marginal R squared is calculated (NO need to run the scripts in this folder)*
   
-
+  - `r-squared-motivation.R`
+  
 ### Output (TBA)
 
 Contains the output given in the code.
