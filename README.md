@@ -44,7 +44,7 @@ the scripts within each separate folder should be run in the order specified her
     Additional*:
     
     - `mi-Neff_functions(L1).R` - functions that calculate the MI based effective sample size
-    - `wrapper_function.R` - a copy oof the wrapper function
+    - `wrapper_function.R` - a copy of the wrapper function
     
  - j-ref_frac-ref:
  
