@@ -1,4 +1,4 @@
-# Master's Thesis Repository 
+# Master's Thesis Research Archive
 
 **(NOTE: THE RESEARCH IS STILL IN PROGRESS, THE CODE  MAY NOT EXACTLY REPLICATE THE FINAL VERSION)**
 
@@ -77,6 +77,8 @@ Contains the output given in the code.
 ### `Wrapper_function`* 
 this folder contains the programmed wrapper function around `bain`, for testing hypotheses about the (fixed) parameters of two-level `lmer` models using `bain`, which includes the possibility of calculating and using jref directly within the function, with no need to calculate it separately. The folder also contains tests for this function (see, `tests_wrapper.R`).
 
+### Postprocessing 
+Contains the scripts that are necessary to obtain the plots and tables presented in the paper.
 
 ## Ethics:
 
