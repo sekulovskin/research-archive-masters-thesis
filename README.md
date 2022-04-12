@@ -44,7 +44,7 @@ the scripts within each separate folder should be run in the order specified her
     Additional*:
     
     - `mi-Neff_functions(L1).R` - functions that calculate the MI based effective sample size
-    - `wrapper_function.R` - a copy oof the wrapper function
+    - `wrapper_function.R` - a copy of the wrapper function
     
  - j-ref_frac-ref:
  
@@ -88,7 +88,7 @@ All the data is simulated. The research protocol has been approved by the Ethics
 
 ## Notes: 
 
-If you wish to use the Wrapper function, please use **only** the `wrapper_function.R` script, which contains the tested and ready-to use version of the function. Currently this version can apply overall data standardization, and uses the sample size of either the level-1 observations, level-2 observations or the effective sample size, calculated based on the ICC approach, or a sample size provided by the user. The wrapper can also implement the value fro jref, based on this paper. In the future the novel method for calculating the effective sample size, might be included.
+If you wish to use the Wrapper function, please use **only** the `wrapper_function.R` script, which contains the tested and ready-to use version of the function. Currently this version can apply overall data standardization, and uses the sample size of either the level-1 observations, level-2 observations or the effective sample size, calculated based on the ICC approach, or a sample size provided by the user. The wrapper can also implement the value for jref, based on this paper. In the future the novel method for calculating the effective sample size, might be included.
 
 ## References:
 
