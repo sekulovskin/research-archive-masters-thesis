@@ -143,7 +143,7 @@ model <- "model {
 
 model.def <- rjags::jags.model(file = textConnection(model), data = data1, n.chains = 2,
                                inits = list(.RNG.name="base::Wichmann-Hill",
-                                            .RNG.seed=123))
+                                            .RNG.seed=100))
 
 update(object = model.def, n.iter = 1000)
 
@@ -158,7 +158,7 @@ results <- rjags::coda.samples(model = model.def, variable.names = parameters, n
 #gelman.plot(results)
 
 summary(results)
-summ(lmer_model1)) #compare with lmer
+summary(lmer_model1) #compare with lmer
 
 #+++++++++++++++++++++++++++++++++++++++++++++
 #Calculate the effective sample size
