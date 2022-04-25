@@ -111,6 +111,10 @@ This folder contains the programmed wrapper function around `bain`, for testing 
 
 Contains the script that are necessary to obtain the plots that are presented in the paper.
 
+### Thesis
+
+Contains the paper in a pdf format (TBA).
+
 ## Ethics:
 
 All the data is simulated. The research protocol has been approved by the Ethics Committee of the Faculty of Social and Behavioural Sciences at Utrecht University
