@@ -101,7 +101,7 @@ hypothesis <- "X1 = 0"
 
 BF.n0.4k_1pred.nlvl2 <- data.frame()
 
-for(i in 1:length(mod_n0.4k_1pred.RMLE)){
+for(i in 1:length(mod_n0.4k_1pred.REML)){
   BF.n0.4k_1pred.nlvl2[i, c(1,2,3)] <- bain_2lmer(mod_n0.4k_1pred[[i]], hypothesis, 
                                                        jref = TRUE, standardize = FALSE,
                                                        N = "level_2", seed = 123)[["fit"]][1, c(5,6,7)]

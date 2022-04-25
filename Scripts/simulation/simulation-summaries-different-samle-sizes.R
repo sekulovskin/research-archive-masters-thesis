@@ -1,5 +1,5 @@
 #=============================
-#Simulation summaries FMLE#
+#Simulation summaries FML#
 #============================
 setwd("C:/Users/nikol/Desktop/MSc MSBBSS/Year-2_2021-2022/Master Thesis/Master's thesis repo/Simulation")
 library(dplyr)

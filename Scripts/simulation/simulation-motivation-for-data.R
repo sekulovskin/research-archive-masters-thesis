@@ -580,3 +580,11 @@ sigma_f  <- var(y_hat)
 Pseudo_Rsq_fixed <- (sigma_f)/(sigma_f + sigma_u0 + sigma_u1 + sigma_u2 + sigma_e)
 Pseudo_Rsq_fixed
 
+
+
+
+
+# ================================================================
+library(brms)
+bayesian <- brm(y ~ X1 + X2 +(X1 + X2 | group), data = data, warmup = 1000, iter = 3000, 
+    cores = 2, chains = 2, seed = 123)

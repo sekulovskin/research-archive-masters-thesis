@@ -2,8 +2,7 @@
 # Simulating two-level data sets; for annotations about what the code does
 # please see `simulation-motivation-for-data.R` script 
 #========================================================================
-N_sim <- 50
-#number of simulations (per pseudo R^2 for the fixed effects value)
+N_sim <- 1000 # number of simulations for each cell in Figure 1 of the paper
 
 #++++++++++++++++++++++++++
 #N = 400 (ng = 20, n=20)
