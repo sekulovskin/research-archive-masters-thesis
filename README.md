@@ -26,7 +26,7 @@ note only run the scripts that are explicitly mentioned in order to obtain the s
     
        Produces:
     
-    - `effectve-sample-size.csv`, and the model fits presented in Table 3 of the paper (not saved in the csv)
+    - `effectve-sample-size.csv`, and the parameter estimates presented in Table 3 of the paper (not saved in the csv)
 
  - sensitivity-analysis:
     
