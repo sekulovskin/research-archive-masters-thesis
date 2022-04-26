@@ -13,7 +13,7 @@ This paper proposes a default Bayes Factor with clear operating characteristics 
 
 ## Content:
 
-Note, this repository does not contain a separate Data folder, since all the data used within the paper is either simulated from the `R` scripts or openly available within `R` packages.
+Note, this repository does not contain a separate Data folder, since all the data used within the paper is either simulated within the `R` scripts or openly available from `R` packages.
 
 ### *Scripts*
 
