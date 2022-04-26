@@ -15,7 +15,7 @@ This paper proposes a default Bayes Factor with clear operating characteristics 
 
 Note, this repository does not contain a separate Data folder, since all the data used within the paper is either simulated from the `R` scripts or openly available within `R` packages.
 
-### Scripts 
+### **Scripts** 
 
 The `R` scripts within each separate folder should be run in the order specified here. Please
 note only run the scripts that are explicitly mentioned in order to obtain the same results as the ones stored in the `Output` folder. In other words, the additional scripts are usually `R` functions that are sourced within the main scripts. The ordering of the scripts correspond to the ordering of the sections within the paper.
@@ -87,7 +87,7 @@ note only run the scripts that are explicitly mentioned in order to obtain the s
     
   
 
-### `Output` contains all `csv` files produced by the code given in the `scripts` folder:
+### **Output** contains all `csv` files produced by the code given in the `scripts` folder:
 
    - `effectve-sample-size.csv` contains the results presented in the Table 1;
    - `sensitivity.csv` contains the results from the sensitivity analysis presented in Figure 1;
@@ -103,15 +103,15 @@ note only run the scripts that are explicitly mentioned in order to obtain the s
    - `simulation-RMLE.ccv` contains the average BF, fit and complexity along with a 95% interval for each of the 16 categories calculated using REML and N = MI-based N_eff (not presented in the thesis, but included such that researchers can easily check the results);
    
  
-### Wrapper_function
+### **Wrapper_function**
 
 This folder contains the programmed wrapper function around `bain`, for testing hypotheses about the (fixed) parameters of two-level `lmer` models using `bain`, which includes the possibility of calculating and using `jref` directly within the function, with no need to calculate it separately. The folder also contains tests for this function (see, `tests_wrapper.R`).
 
-### Postprocessing 
+### **Postprocessing** 
 
 Contains the script that are necessary to obtain the plots that are presented in the paper.
 
-### Thesis
+### **Thesis**
 
 Contains the paper in a pdf format (TBA).
 
