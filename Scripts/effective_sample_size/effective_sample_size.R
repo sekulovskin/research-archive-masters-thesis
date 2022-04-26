@@ -97,42 +97,41 @@ summ(lmer_model.3)
 #++++++++++++++++++++++++
 
 model <- "model {   
-  # Likelihood
-  for (i in 1:3200){
-    y[i] ~ dnorm(mu[i], tau)
-    mu[i] <- alpha[group[i]] + beta_1[group[i]] * X1[i] + beta_2[group[i]] * X2[i]
-  }
-  # level 2
-  for(j in 1:80){  #we have 80 groups
-    alpha[j] <- B[j,1]
-    beta_1[j]  <-  B[j,2]
-    beta_2[j]  <-  B[j,3]
-    B[j,1:3] ~ dmnorm (B.hat[j,], invSigma.B[,])
-    B.hat[j,1] <- mu.alpha
-    B.hat[j,2] <- mu.beta_1
-    B.hat[j,3] <- mu.beta_2
-  }
-  # Priors
-  mu.alpha ~ dnorm(0, 0.0001)
+# Likelihood
+for (i in 1:3200){
+  y[i] ~ dnorm(mu[i], tau)
+  mu[i] <- alpha[group[i]] + beta_1[group[i]] * X1[i] + beta_2[group[i]] * X2[i]
+}
+# lvl 2
+for(j in 1:80){  #we have 80 groups
+alpha[j] <- B[j,1]
+beta_1[j]  <-  B[j,2]
+beta_2[j]  <-  B[j,3]
+B[j,1:3] ~ dmnorm (B.hat[j,], invSigma.B[,])
+B.hat[j,1] <- mu.alpha
+B.hat[j,2] <- mu.beta_1
+B.hat[j,3] <- mu.beta_2
+}
+  mu.alpha  ~ dnorm(0, 0.0001)  # (hyper)priors
   mu.beta_1 ~ dnorm(0,  0.0001)
   mu.beta_2 ~ dnorm(0,  0.0001)
-  tau ~ dgamma (0.001, 0.001)  #
-  invSigma.B[1:3,1:3] ~ dwish(Sigma.B, 3)  
-  sigma.alpha ~ dgamma (0.001, 0.001)  
-  sigma.beta_1 ~ dgamma (0.001, 0.001)    
-  sigma.beta_2 ~ dgamma (0.001, 0.001)   
-  Sigma.B[1,1] <- pow(sigma.alpha, 2)  
-  Sigma.B[2,2] <- pow(sigma.beta_1, 2)
-  Sigma.B[3,3] <- pow(sigma.beta_2, 2)
-  Sigma.B[1,2] <- rho_1*sigma.alpha*sigma.beta_1 
-  Sigma.B[2,1] <- Sigma.B[1,2]
-  Sigma.B[1,3] <- rho_2*sigma.alpha*sigma.beta_2 
-  Sigma.B[3,1] <- Sigma.B[1,3]
-  Sigma.B[2,3] <- rho_3*sigma.beta_1*sigma.beta_2 
-  Sigma.B[3,2] <- Sigma.B[2,3]
-  rho_1 ~ dunif(-1, 1)  #cor is between -1 and 1
-  rho_2 ~ dunif(-1, 1)  #cor is between -1 and 1
-  rho_3 ~ dunif(-1, 1)  #cor is between -1 and 1
+  tau ~ dgamma (0.001, 0.001)  
+  invSigma.B[1:3,1:3] ~ dwish(Tau.B, 3)  
+  tau.alpha  ~ dgamma (0.001, 0.001)  
+  tau.beta_1 ~ dgamma (0.001, 0.001)    
+  tau.beta_2 ~ dgamma (0.001, 0.001)    
+  Tau.B[1,1] <- pow(tau.alpha,  -1/2)  
+  Tau.B[2,2] <- pow(tau.beta_1, -1/2)
+  Tau.B[3,3] <- pow(tau.beta_2, -1/2)
+  Tau.B[1,2] <- rho_1*tau.alpha*tau.beta_1 
+  Tau.B[2,1] <- Tau.B[1,2]
+  Tau.B[1,3] <- rho_2*tau.alpha*tau.beta_2 
+  Tau.B[3,1] <- Tau.B[1,3]
+  Tau.B[2,3] <- rho_3*tau.beta_1*tau.beta_2 
+  Tau.B[3,2] <- Tau.B[2,3]
+  rho_1 ~ dunif(-1, 1)  
+  rho_2 ~ dunif(-1, 1)  
+  rho_3 ~ dunif(-1, 1)  
 }"
 
 

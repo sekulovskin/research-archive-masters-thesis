@@ -48,7 +48,10 @@ N_eff <- 1165
 M <- 2
 #Calculate J_ref and fracref 
 J_ref <- N_eff / 19^(2/M)
+J_ref
+
 fracref <- J_ref/M
+fracref
 
 #Calculate the BF
 res <- bain_2lmer(lmer_model, "X1 = X2 = 0", 

@@ -82,7 +82,7 @@ note only run the scripts that are explicitly mentioned in order to obtain the s
     Additional scripts:
     
     - `mi-Neff_functions(L1).R` - functions that calculate the MI based effective sample size
-    - `wrapper_function.R` - a copy oof the wrapper function
+    - `wrapper_function.R` - a copy of the wrapper function
     - `simulation-motivation-for-data.R` - explanation of how and why the data sets are simulated.
     
   
