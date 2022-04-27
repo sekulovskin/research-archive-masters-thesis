@@ -34,7 +34,7 @@ note only run the scripts that are explicitly mentioned in order to obtain the s
     
         Produces:
     
-    - `sensitivity.csv` , and the model fit presented in Table 2 of the paper (not saved in the csv)
+    - `sensitivity.csv` , and the model fit presented in Table 2 of the paper (not saved in the .`.csv`)
     
  - j-ref_frac-ref:
  
@@ -90,7 +90,7 @@ note only run the scripts that are explicitly mentioned in order to obtain the s
 ### *Output* contains all `csv` files produced by the code given in the `scripts` folder:
 
    - `effectve-sample-size.csv` contains the results presented in the Table 1;
-   - `sensitivity.csv` contains the results from the sensitivity analysis presented in Figure 1;
+   - `sensitivity.csv` contains the results from the sensitivity analysis presented in Figure 3;
    - `combined_BF.csv` contains the results from the simulation study plotted in Figures 4 and 5 (using FML est. and MI-based N_eff);
    - `simulation-FML.csv` contains the average BF, fit and complexity along with a 95% interval for each of the 16 categories calculated using FML and N = MI-based N_eff (not presented in the thesis, but included such that researchers can easily check the results);
    -  `combined_nlvl1.csv` contains the results from the second part of the simulation study (using FML est. and N = number of level 1 observations);
