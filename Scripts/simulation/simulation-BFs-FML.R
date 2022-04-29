@@ -3,7 +3,8 @@
 # for models estimated using Full Maximum likelihood Estimation 
 #================================================================================================
 
-setwd("C:/Users/nikol/Desktop/MSc MSBBSS/Year-2_2021-2022/Master Thesis/Master's thesis repo/Simulation")
+setwd("")  # set your working directory such that you can source the functions 
+# you can also do this through RStudio by clicking Session -> Set Working Directory -> Choose Directory...
 library(lme4)
 library(bain)
 library(jtools)

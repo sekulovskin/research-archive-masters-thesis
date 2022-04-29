@@ -1,7 +1,8 @@
 #====================================
 # How to calculate J_ref example
 #===================================
-setwd("C:/Users/nikol/Desktop/MSc MSBBSS/Year-2_2021-2022/Master Thesis/Master's thesis repo/J-ref_frac-ref")
+setwd("")  # set your working directory such that you can source the functions 
+# you can also do this through RStudio by clicking Session -> Set Working Directory -> Choose Directory...
 library(lme4)
 library(jtools)
 source("wrapper_function.R")

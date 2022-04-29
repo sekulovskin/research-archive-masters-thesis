@@ -13,36 +13,40 @@ This paper proposes a default Bayes Factor with clear operating characteristics 
 
 ## Content:
 
-Note, this repository does not contain a separate Data folder, since all the data used within the paper is either simulated within the `R` scripts or openly available from `R` packages.
+All the data used within the paper is either simulated within the respective `R` scripts or openly available from `R` packages.
 
 ### *Scripts*
 
-The `R` scripts within each separate folder should be run in the order specified here. Please
-note only run the scripts that are explicitly mentioned in order to obtain the same results as the ones stored in the `Output` folder. In other words, the additional scripts are usually `R` functions that are sourced within the main scripts. The ordering of the scripts correspond to the ordering of the sections within the paper.
+The `R` scripts within each separate folder should be run in the specified order given here. Please
+note only run the scripts that are explicitly mentioned in order to obtain the same results as the ones stored in the `Output` folder. In other words, the additional scripts are usually `R` functions that are sourced within the main scripts. The ordering of the subfolders within this folder corresponds to the ordering of the sections within the paper.
 
- - effective_sample_size:
+ - **data**
+ 
+    - `data.R` - illustrates all the different simulated data sets used throughout the paper . This is the script mentioned in the Data section of the paper (the data sets correspond to those given in Figure 1).
+
+ - **effective_sample_size:**
    
     - `effective_sample_size.R`
     
        Produces:
     
-    - `effectve-sample-size.csv`, and the parameter estimates presented in Table 3 of the paper (not saved in the csv)
+    - `effectve-sample-size.csv`, and the parameter estimates presented in Table 4 of the paper (not saved as a `.csv`)
 
- - sensitivity-analysis:
+ - **sensitivity-analysis:**
     
     - `sensitivity-analysis.R`
     
         Produces:
     
-    - `sensitivity.csv` , and the model fit presented in Table 2 of the paper (not saved in the .`.csv`)
+    - `sensitivity.csv` , and the model fit presented in Table 2 of the paper (not saved as a `.csv`)
     
- - j-ref_frac-ref:
+ - **j-ref_frac-ref:**
  
     - `jref-example.R` 
     
     (there is no output saved from this script in the `Output` folder, you can see the results directly in the console)
        
- - simulation:
+ - **simulation:**
    
     - `simulation-data.R`
     
@@ -69,13 +73,13 @@ note only run the scripts that are explicitly mentioned in order to obtain the s
     
     - `simulation-summaries-RMLE.R`
     
-     Produces: 
+       Produces: 
       
       `combined_BF_REML.csv`; `simulation-REML.csv` 
       
-  - example
+  - **examples**
     
-    - `example.R`
+    - `examples.R` prints the results tiven in the example section including the estimates in Table 3 (not saved as a `.csv`).
   
     
     
@@ -83,8 +87,6 @@ note only run the scripts that are explicitly mentioned in order to obtain the s
     
     - `mi-Neff_functions(L1).R` - functions that calculate the MI based effective sample size
     - `wrapper_function.R` - a copy of the wrapper function
-    - `simulation-motivation-for-data.R` - explanation of how and why the data sets are simulated.
-    
   
 
 ### *Output* contains all `csv` files produced by the code given in the `scripts` folder:
@@ -96,11 +98,12 @@ note only run the scripts that are explicitly mentioned in order to obtain the s
    -  `combined_nlvl1.csv` contains the results from the second part of the simulation study (using FML est. and N = number of level 1 observations);
    -  `combined_nlvl2.csv` contains the results from the second part of the simulation study (using FML est. and N = number of level 2 observations);
    -  `combined_n-icc.csv` contains the results from the second part of the simulation study (using FML est. and N = ICC-based N_eff);
+   
    - `simulation_nlvl1.csv` contains the average BF, fit and complexity along with a 95% interval for each of the 16 categories calculated using FML and N = number of level 1 observations (not presented in the thesis, but included such that researchers can easily check the results);
    - `simulation_nlvl2.csv` contains the average BF, fit and complexity along with a 95% interval for each of the 16 categories calculated using FML and N = number of level 2 observations (not presented in the thesis, but included such that researchers can easily check the results);
    - `simulation_n-icc.csv` contains the average BF, fit and complexity along with a 95% interval for each of the 16 categories calculated using FML and N = ICC-based N_eff (not presented in the thesis, but included such that researchers can easily check the results);
    -  `combined_BF_REML.csv` contains the results from the simulation study plotted in Figures 6 and 7 (using REML est. and MI-based N_eff);
-   - `simulation-RMLE.ccv` contains the average BF, fit and complexity along with a 95% interval for each of the 16 categories calculated using REML and N = MI-based N_eff (not presented in the thesis, but included such that researchers can easily check the results);
+   -  `simulation-RMLE.ccv` contains the average BF, fit and complexity along with a 95% interval for each of the 16 categories calculated using REML and N = MI-based N_eff (not presented in the thesis, but included such that researchers can easily check the results);
    
  
 ### *Wrapper_function*

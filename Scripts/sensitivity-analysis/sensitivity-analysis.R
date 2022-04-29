@@ -1,13 +1,14 @@
 #==================================
-#Sensitivity analysis 
+#Sensitivity Analysis 
 #=================================
-setwd("C:/Users/nikol/Desktop/MSc MSBBSS/Year-2_2021-2022/Master Thesis/Master's thesis repo/Sensitivity Analysis")
+setwd("")  # set your working directory such that you can source the functions 
+# you can also do this through RStudio by clicking Session -> Set Working Directory -> Choose Directory...
 source("wrapper_function.R")
 source("mi-Neff_functions(L1).R")
 library(lme4)
 library(jtools)
 
-# Construct the data
+# Construct the data set corresponding to cell 13 of Figure 1
 
 set.seed(1234)
 nG <- 80   
@@ -31,9 +32,13 @@ lmer_model <- lmer(y ~ X1 + X2 + (X1 + X2 | group), REML = FALSE, data = data)
 summ(lmer_model)
 
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-#Sensitivity analysis
+#Sensitivity Analysis
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-fraction <- c(1, 2, 3) 
+
+fraction <- c(1, 2, 3)  # i.e., 1*2, 2*J, 3*J
+
+#--------------------------------------------------------------------------
+
 # N = lvl1
 BF.1 <- data.frame()
 for(i in 1:3){
@@ -55,7 +60,6 @@ for(i in 1:3){
 #--------------------------------------------------------------------------
 
 # N = ICC
-
 BF.3 <- data.frame()
 for(i in 1:3){
   BF.3[i, c(1,2,3)] <- bain_2lmer(lmer_model, "X1 = X2 = 0", 
@@ -68,57 +72,56 @@ bain_2lmer(lmer_model, "X1 = X2 = 0",
            fraction = fraction[i] , standardize = FALSE,
            N = "ICC_effective", seed = 123)[["fit"]][1, c(5,6,7)]
 
-# Check the value ICC effective smaple size
+# Check the calculated value for the ICC-based  effective sample size
 
 bain_2lmer(lmer_model, "X1 = X2 = 0", 
            fraction = fraction[i] , standardize = FALSE,
            N = "ICC_effective", seed = 123)$n  #413.1038
+
 #--------------------------------------------------------------------------
 
-# N = MI effective
-model <- "model { 
-# Likelihood
-for (i in 1:3200){
-  y[i] ~ dnorm(mu[i], tau)
-  mu[i] <- alpha[group[i]] + beta_1[group[i]] * X1[i] + beta_2[group[i]] * X2[i]
-}
+# N = MI-based effective sample size
+model <- "model {   
+  for (i in 1:3200){   # Likelihood
+    y[i] ~ dnorm(mu[i], tau)
+    mu[i] <- alpha[group[i]] + beta_1[group[i]] * X1[i] 
+                             + beta_2[group[i]] * X2[i]
+  }
+  
+  for(j in 1:80){   # level 2
+    alpha[j] <- U[j,1]
+    beta_1[j]  <-  U[j,2]
+    beta_2[j]  <-  U[j,3]
+    U[j,1:3] ~ dmnorm (MU[j,], invSigma[,])
+    MU[j,1] <- mu.alpha
+    MU[j,2] <- mu.beta_1
+    MU[j,3] <- mu.beta_2
+  }
+  mu.alpha  ~ dnorm(0, 0.0001)  # (hyper)priors
+  mu.beta_1 ~ dnorm(0,  0.0001)
+  mu.beta_2 ~ dnorm(0,  0.0001)
+  tau ~ dgamma (0.001, 0.001)  
+  invSigma[1:3,1:3] ~ dwish(Tau, 3)  
+  tau.alpha  ~ dgamma (0.001, 0.001)  
+  tau.beta_1 ~ dgamma (0.001, 0.001)    
+  tau.beta_2 ~ dgamma (0.001, 0.001)    
+  Tau[1,1] <- pow(tau.alpha,  -1/2)  
+  Tau[2,2] <- pow(tau.beta_1, -1/2)
+  Tau[3,3] <- pow(tau.beta_2, -1/2)
+  Tau[1,2] <- rho_1*tau.alpha*tau.beta_1 
+  Tau[2,1] <- Tau[1,2]
+  Tau[1,3] <- rho_2*tau.alpha*tau.beta_2 
+  Tau[3,1] <- Tau[1,3]
+  Tau[2,3] <- rho_3*tau.beta_1*tau.beta_2 
+  Tau[3,2] <- Tau[2,3]
+  rho_1 ~ dunif(-1, 1)  
+  rho_2 ~ dunif(-1, 1)  
+  rho_3 ~ dunif(-1, 1)  
+}"
 
-# lvl 2
-for(j in 1:80){  #we have 80 groups
-alpha[j] <- B[j,1]
-beta_1[j]  <-  B[j,2]
-beta_2[j]  <-  B[j,3]
-B[j,1:3] ~ dmnorm (B.hat[j,], Tau.B[,])
-B.hat[j,1] <- mu.alpha
-B.hat[j,2] <- mu.beta_1
-B.hat[j,3] <- mu.beta_2
-}
 
-# Priors
-mu.alpha ~ dnorm(0, 0.0001)
-mu.beta_1 ~ dnorm(0,  0.0001)
-mu.beta_2 ~ dnorm(0,  0.0001)
-tau ~ dgamma (0.001, 0.001)  #resiudal variance
-Tau.B[1:3,1:3] ~ dwish(Sigma.B, 3)  # inverse of covariance matrix following a Wishard dist.
-  sigma.alpha ~ dgamma (0.001, 0.001)  #ntercept variance
-  sigma.beta_1 ~ dgamma (0.001, 0.001)    #slope variance
-  sigma.beta_2 ~ dgamma (0.001, 0.001)    #slope variance
-  Sigma.B[1,1] <- pow(sigma.alpha, 2)  #construct the cov matrix
-  Sigma.B[2,2] <- pow(sigma.beta_1, 2)
-  Sigma.B[3,3] <- pow(sigma.beta_2, 2)
-  Sigma.B[1,2] <- rho_1*sigma.alpha*sigma.beta_1 #covariance between slope of b1 and intercept
-  Sigma.B[2,1] <- Sigma.B[1,2]
-  Sigma.B[1,3] <- rho_2*sigma.alpha*sigma.beta_2 #covariance between slope of b2 and intercept
-  Sigma.B[3,1] <- Sigma.B[1,3]
-  Sigma.B[2,3] <- rho_3*sigma.beta_1*sigma.beta_2 #covariance between slope of b2 and slope of b1
-  Sigma.B[3,2] <- Sigma.B[2,3]
-  rho_1 ~ dunif(-1, 1)  #cor is between -1 and 1
-  rho_2 ~ dunif(-1, 1)  #cor is between -1 and 1
-  rho_3 ~ dunif(-1, 1)  #cor is between -1 and 1
-}
-" 
 data2 <- data 
-n_mi <- mi.Neff.2pred.nG80(data2) #1165.461
+n_mi <- mi.Neff.2pred.nG80(data2) #921
 
 BF.4 <- data.frame()
 for(i in 1:3){
@@ -127,14 +130,13 @@ for(i in 1:3){
                                   N = n_mi, seed = 123)[["fit"]][1, c(5,6,7)]
 }
 
+#End of Sensitivity Analysis
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-
-
+#Combine the results
 sensitivity <- rbind(BF.1, BF.2, BF.3, BF.4)
 sensitivity$J <- rep(c(2,4,6), 4)
 sensitivity$N <- as.factor(rep(c("Level-1", "Level-2", "ICC-effective", "MI-effective"), each = 3))
-
-
 
 #save the results
 write.csv(sensitivity, "sensitivity.csv")

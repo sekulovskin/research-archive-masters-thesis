@@ -1,7 +1,9 @@
 #===============================================================
 # Example section
+# these examples are also available at: https://www.nikolasekulovski.com/tutorials/
 #==============================================================
-setwd("C:/Users/nikol/Desktop/MSc MSBBSS/Year-2_2021-2022/Master Thesis/Master's thesis repo/example")
+setwd("")  # set your working directory such that you can source the functions 
+# you can also do this through RStudio by clicking Session -> Set Working Directory -> Choose Directory...
 # packages
 library(R2MLwiN)
 library(lme4)
@@ -36,7 +38,7 @@ summary(model.1)
 # 1st option using the `summ` function from `jtools`
 summ(model.1)  # .32 (large effect size)
 
-# 2nd optioncalculate it by hand
+# 2nd option to calculate it by hand
 fixef <- fixef(model.1)
 y_hat <- fixef[1] + fixef[2]*tutorial$standlrt
 sigma_f  <- var(y_hat)
@@ -56,47 +58,45 @@ for (i in 1:4059){
   mu[i] <- alpha[school[i]] + beta[school[i]] * standlrt[i]
 }
 
-# lvl 2
+# Level-2
 for(j in 1:65){
-alpha[j] <- B[j,1]
-beta[j]  <-  B[j,2]
-B[j,1:2] ~ dmnorm (B.hat[j,], invSigma.B[,])
-B.hat[j,1] <- mu.alpha
-B.hat[j,2] <- mu.beta
+alpha[j] <- U[j,1]
+beta[j]  <-  U[j,2]
+U[j,1:2] ~ dmnorm (MU[j,], invSigma[,])
+MU[j,1] <- mu.alpha
+MU[j,2] <- mu.beta
 }
 
-# Priors
+# (hyper)Priors
 mu.alpha ~ dnorm(0, 0.0001)
-mu.beta ~ dnorm(0,  0.0001)
-tau ~ dgamma (0.001, 0.001)  #resiudal variance
-invSigma.B[1:2,1:2] ~ dwish(Tau.B, 2)  # inverse of covariance matrix following a Wishard dist.
-  tau.alpha ~ dgamma (0.001, 0.001)  #ntercept variance
-  tau.beta ~ dgamma (0.001, 0.001)    #slope variance
-  Tau.B[1,1] <- pow(tau.alpha, 2)  #construct the cov matrix
-  Tau.B[2,2] <- pow(tau.beta, 2)
-  Tau.B[1,2] <- rho_1*tau.alpha*tau.beta #covariance between the slope of standlrt and the intrcept
-  Tau.B[2,1] <- Tau.B[1,2]
-  rho_1 ~ dunif(-1, 1)  #cor is between -1 and 1
+mu.beta  ~ dnorm(0,  0.0001)
+tau ~ dgamma (0.001, 0.001)            # resiudal variance
+invSigma[1:2,1:2] ~ dwish(Tau, 2)      # inverse of covariance matrix following a Wishard dist.
+  tau.alpha ~ dgamma (0.001, 0.001)    # intercept variance
+  tau.beta  ~ dgamma (0.001, 0.001)    # slope variance
+  Tau[1,1] <- pow(tau.alpha, -1/2)     # construct the cov matrix
+  Tau[2,2] <- pow(tau.beta, -1/2)
+  Tau[1,2] <- rho_1*tau.alpha*tau.beta # covariance between the slope of standlrt and the intrcept
+  Tau[2,1] <- Tau[1,2]
+  rho_1 ~ dunif(-1, 1)                 # correlation (between -1 and 1)
 }
 "
 
 
 # Check and inspect the model
-#model.def <- jags.model(file = textConnection(jags.model),
-#                        inits = list(.RNG.name="base::Wichmann-Hill",
-#                                     .RNG.seed=100),
-#                        data = tutorial, n.chains = 2)
-#
-#update(object = model.def, n.iter = 1000)
-#
-## for checking whether the parameters are estimated correctly
-#parameters <- c("mu.alpha", "mu.beta")
-#
-#
-#results <- coda.samples(model = model.def, variable.names = parameters, n.iter =1000)
-#summary(results)
+model.def <- jags.model(file = textConnection(jags.model),
+                        inits = list(.RNG.name="base::Wichmann-Hill",
+                                     .RNG.seed=100),
+                        data = tutorial, n.chains = 2)
+
+update(object = model.def, n.iter = 1000)
+
+# for checking whether the parameters are estimated correctly
+parameters <- c("mu.alpha", "mu.beta", "InvSigma")
 
 
+results <- coda.samples(model = model.def, variable.names = parameters, n.iter =1000)
+summary(results)
 
 #fit the model again but ask to monitor all the random effects
 model.def <- jags.model(file = textConnection(jags.model),
@@ -512,7 +512,7 @@ u_0 <- rep(intercept_var, times = n_gr)
 slope_var_1 <- rnorm(nG, 0, 0.1)   
 u_1 <- rep(slope_var_1, times = n_gr) 
 epsilon <- rnorm(4059, 0, 0.7)
-normexam <-  b1 *tutorial$standlrt + b1*tutorial$avslrt +  u_0 + u_1*tutorial$standlrt + epsilon  #construct the new outcome 
+normexam <-  b1 *tutorial$standlrt + b1*tutorial$avslrt +  u_0 + u_1*tutorial$standlrt + epsilon  # construct the new outcome 
 tutorial.3 <- data.frame(tutorial$school, tutorial$student, normexam, tutorial$standlrt, tutorial$avslrt)
 names(tutorial.3) <- c("school", "student", "normexam", "standlrt", "avslrt")
 
