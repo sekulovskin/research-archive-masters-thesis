@@ -1,6 +1,7 @@
 ######Testing the wrapper function `bain_2lmer`####
 
-setwd("C:/Users/nikol/Desktop/MSc MSBBSS/Year-2_2021-2022/Master Thesis/thesis-research-archive/research-archive-masters-thesis-/Wrapper_function")
+setwd("")  # set your working directory such that you can source the functions 
+# you can also do this through RStudio by clicking Session -> Set Working Directory -> Choose Directory...
 #load the packages and the wrapper
 library(testthat)
 library(lme4)
