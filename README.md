@@ -18,7 +18,7 @@ All the data used within the paper is either simulated within the respective `R`
 ### *Scripts*
 
 The `R` scripts within each separate folder should be run in the specified order given here. Please
-note only run the scripts that are explicitly mentioned in order to obtain the same results as the ones stored in the `Output` folder. In other words, the additional scripts are usually `R` functions that are sourced within the main scripts. The ordering of the subfolders within this folder corresponds to the ordering of the sections within the paper.
+note only run the scripts that are explicitly mentioned in order to obtain the same results as the ones stored in the `Output` folder. In other words, the additional scripts are usually `R` functions that are sourced within the main scripts. The ordering of the subfolders within this folder corresponds to the ordering of the sections within the paper. Please note, it takes around 10-30 seconds to calculate the effective sample size based on the newly proposed approach (depending on the complexity of the model and the number of level-1 observations).
 
  - **data**
  
