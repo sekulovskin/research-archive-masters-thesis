@@ -1,9 +1,10 @@
 #===============================================================
-# Example section
+# Examples 
 # these examples are also available at: https://www.nikolasekulovski.com/tutorials/
 #==============================================================
 setwd("")  # set your working directory such that you can source the functions 
 # you can also do this through RStudio by clicking Session -> Set Working Directory -> Choose Directory...
+
 # packages
 library(R2MLwiN)
 library(lme4)
@@ -11,6 +12,7 @@ library(MASS)
 library(tidyverse)
 library(jtools)
 library(rjags)
+library(summarytools)
 source("wrapper_function.R")
 
 # Data --------------------------------------------------------------------
@@ -20,10 +22,16 @@ data("tutorial")
 
 # inspect  
 head(tutorial)
-summary(tutorial)
 
 # subset
 tutorial <- tutorial[, c(1,2,3,5)]
+
+# descriptives 
+descr(tutorial, stats = c("mean", "med", "sd", "min", "max"))
+
+#+++++++++++++++++++++++++++++++++
+#Example 1
+#+++++++++++++++++++++++++++++++++
 
 # Model---------------------------------------------------------------------
 
@@ -32,6 +40,8 @@ model.1 <- lmer(normexam ~ standlrt + (standlrt | school), REML = FALSE, data = 
 
 #inspect model fit
 summary(model.1)
+
+
 
 # Check for the R^2_m------------------------------------------------------
 
@@ -83,22 +93,7 @@ invSigma[1:2,1:2] ~ dwish(Tau, 2)      # inverse of covariance matrix following 
 "
 
 
-# Check and inspect the model
-model.def <- jags.model(file = textConnection(jags.model),
-                        inits = list(.RNG.name="base::Wichmann-Hill",
-                                     .RNG.seed=100),
-                        data = tutorial, n.chains = 2)
-
-update(object = model.def, n.iter = 1000)
-
-# for checking whether the parameters are estimated correctly
-parameters <- c("mu.alpha", "mu.beta", "InvSigma")
-
-
-results <- coda.samples(model = model.def, variable.names = parameters, n.iter =1000)
-summary(results)
-
-#fit the model again but ask to monitor all the random effects
+#fit the model and ask JAGS to monitor all the random effects
 model.def <- jags.model(file = textConnection(jags.model),
                         inits = list(.RNG.name="base::Wichmann-Hill",
                                      .RNG.seed=100),
@@ -269,6 +264,10 @@ BFs.1$b
 # Get BF_i0
 BF_iu <- BFs.1[["fit"]]$BF[2]/BFs.1[["fit"]]$BF[1]
 BF_iu
+
+#+++++++++++++++++++++++++++++++++
+#Example 2
+#+++++++++++++++++++++++++++++++++
 
 #========================================================================================
 # Repeat the analyses with everything the same but now with the null hypothesis being true 
@@ -479,14 +478,25 @@ BF_0i.1
 #incpect the fraction b
 BFs.2$b
 
+#+++++++++++++++++++++++++++++++++
+#Example 3
+#+++++++++++++++++++++++++++++++++
+
 #=============================================================================
 #Include a level-2 predictor
 #============================================================================
 
+# reload the data
+data("tutorial")
+
 # Fit lmer model 
 model.3 <- lmer(normexam ~ standlrt + avslrt + (standlrt | school), REML = FALSE, data = tutorial)
 
-summ(model.3)
+# inspect the model
+summary(model.3)
+
+# inspect R^2_m
+summ(model.3)   
 
 #calculate the BF
 
@@ -496,8 +506,14 @@ hypotheses <- "standlrt = avslrt = 0;
 
 BFs.3 <- bain_2lmer(model.3, hypotheses, standardize = F, N = "ICC_effective", seed = 123, jref = TRUE)
 print(BFs.3)
+
+#incpect the fraction b
 BFs.3$b
 
+#+++++++++++++++++++++++++++++++++
+#Example 4
+#+++++++++++++++++++++++++++++++++
+#+
 #Simulate the same data set with the null being true ----------------------------
 
 split <- split(tutorial, tutorial$school)
@@ -519,6 +535,10 @@ names(tutorial.3) <- c("school", "student", "normexam", "standlrt", "avslrt")
 # Fit lmer model 
 model.4 <- lmer(normexam ~ standlrt + avslrt + (standlrt | school), REML = FALSE, data = tutorial.3)
 
+# inspect the model
+summary(model.4)
+
+#inspect the R^2_m
 summ(model.4)
 
 
