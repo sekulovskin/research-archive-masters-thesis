@@ -76,7 +76,7 @@ bain_2lmer(lmer_model, "X1 = X2 = 0",
 
 bain_2lmer(lmer_model, "X1 = X2 = 0", 
            fraction = fraction[i] , standardize = FALSE,
-           N = "ICC_effective", seed = 123)$n  #413.1038
+           N = "ICC_effective", seed = 123)$n  # 413
 
 #--------------------------------------------------------------------------
 
@@ -121,7 +121,7 @@ model <- "model {
 
 
 data2 <- data 
-n_mi <- mi.Neff.2pred.nG80(data2) #921
+n_mi <- mi.Neff.2pred.nG80(data2) # 921
 
 BF.4 <- data.frame()
 for(i in 1:3){
