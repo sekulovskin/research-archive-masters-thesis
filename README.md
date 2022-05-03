@@ -4,7 +4,7 @@
 
 *Author:* Nikola Sekulovski 
 
-Department of Methodology and Statistics, Utrecht University, The Netherlands.
+Department of Methodology and Statistics, Utrecht University, the Netherlands.
 
 
 ## Introduction 
