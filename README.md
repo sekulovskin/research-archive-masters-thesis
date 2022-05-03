@@ -20,11 +20,11 @@ All the data used within the paper is either simulated within the respective `R`
 The `R` scripts within each separate folder should be run in the specified order given here. Please
 note only run the scripts that are explicitly mentioned in order to obtain the same results as the ones stored in the `Output` folder. In other words, the additional scripts are usually `R` functions that are sourced within the main scripts. The ordering of the subfolders within this folder corresponds to the ordering of the sections within the paper. Please note, it takes around 10-30 seconds to calculate the effective sample size based on the newly proposed approach (depending on the complexity of the model and the number of level-1 observations).
 
- - **data**
+ - **1.data**
  
     - `data.R` - illustrates all the different simulated data sets used throughout the paper . This is the script mentioned in the Data section of the paper (the data sets correspond to those given in Figure 1).
 
- - **effective_sample_size:**
+ - **2.effective_sample_size:**
    
     - `effective_sample_size.R`
     
@@ -32,7 +32,7 @@ note only run the scripts that are explicitly mentioned in order to obtain the s
     
     - `effectve-sample-size.csv`, and the parameter estimates presented in Table 4 of the paper (not saved as a `.csv`)
 
- - **sensitivity-analysis:**
+ - **3.sensitivity-analysis:**
     
     - `sensitivity-analysis.R`
     
@@ -40,13 +40,13 @@ note only run the scripts that are explicitly mentioned in order to obtain the s
     
     - `sensitivity.csv` , and the model fit presented in Table 2 of the paper (not saved as a `.csv`)
     
- - **j-ref_frac-ref:**
+ - **4.j-ref_frac-ref:**
  
     - `jref-example.R` 
     
     (there is no output saved from this script in the `Output` folder, you can see the results directly in the console)
        
- - **simulation:**
+ - **5.simulation:**
    
     - `simulation-data.R`
     
@@ -77,7 +77,7 @@ note only run the scripts that are explicitly mentioned in order to obtain the s
       
       `combined_BF_REML.csv`; `simulation-REML.csv` 
       
-  - **examples**
+  - **6.examples**
     
     - `examples.R` prints the results tiven in the example section including the estimates in Table 3 (not saved as a `.csv`).
   
