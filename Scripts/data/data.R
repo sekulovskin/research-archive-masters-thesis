@@ -15,6 +15,11 @@ library(rsq)
 # Pseudo-R² (total) -  Pseudo-R²  = R² random effects
 
 
+# The values for the variances of the random effects (and residual variance) are inspired
+# by fitting two-level models to openly-available two-level data sets such as the
+# `tutorial` data set from the `R` package `R2MLwiN` (Zhang et al., 2016) and the popularity data set 
+# from Hox et al.(2017) https://github.com/MultiLevelAnalysis/Datasets-third-edition-Multilevel-book/tree/master/chapter%202/popularity
+
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 #N = 400 (ng = 20, n=20)
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

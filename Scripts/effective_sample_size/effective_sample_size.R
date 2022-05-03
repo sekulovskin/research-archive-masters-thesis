@@ -3,6 +3,7 @@
 #===========================================================================================================
 setwd("")  # set your working directory such that you can source the functions 
 # you can also do this through RStudio by clicking Session -> Set Working Directory -> Choose Directory...
+# or simply press Ctrl + Shift + H
 library(lme4)
 library(jtools)
 source("mi-Neff_functions(L1).R")  

@@ -3,11 +3,12 @@
 #===================================
 setwd("")  # set your working directory such that you can source the functions 
 # you can also do this through RStudio by clicking Session -> Set Working Directory -> Choose Directory...
+# or simply press Ctrl + Shift + H
 library(lme4)
 library(jtools)
 source("wrapper_function.R")
-#The data set used in the second section
 
+#The data set used in the second section
 set.seed(1234)
 nG <- 80   
 n  <- 40  
@@ -34,19 +35,22 @@ sigma_u0 <- 0.3^2
 sigma_u1 <- 0.1^2
 sigma_u2 <- 0.2^2
 sigma_e  <- 0.6^2
+
 #extract the estimated fixed effects
 fixef <- fixef(lmer_model)
+
 #obtain the variance attributable to the fixed effects components 
 y_hat <- fixef[1] + fixef[2]*data$X1 + fixef[3]*data$X2
 sigma_f  <- var(y_hat)
+
 #calculate the marginal R^2 
 Pseudo_Rsq_fixed <- (sigma_f)/(sigma_f + sigma_u0 + sigma_u1 + sigma_u2 + sigma_e)
 Pseudo_Rsq_fixed
 
 #sample size (equal to the calculated effective sample size, see `Effective_sample_size.R`)
-
 N_eff <- 1165
 M <- 2
+
 #Calculate J_ref and fracref 
 J_ref <- N_eff / 19^(2/M)
 J_ref
@@ -60,13 +64,13 @@ res <- bain_2lmer(lmer_model, "X1 = X2 = 0",
            N = N_eff, seed = 123)
 print(res)
 
-#We can also inspect the calculated value for the fraction by
+# We can also inspect the calculated value for the fraction by
 res$b
-#which corresponds to
+
+# which corresponds to
 J_ref/N_eff
 
-# We can the same directly through the wrapper function 
-
+# We can do the same automatically within the wrapper function 
 res <- bain_2lmer(lmer_model, "X1 = X2 = 0", 
                   jref = TRUE, standardize = FALSE, #I change fraction to jref = TRUE
                   N = N_eff, seed = 123)

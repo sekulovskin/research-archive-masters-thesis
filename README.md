@@ -116,7 +116,7 @@ Contains the script that are necessary to obtain the plots that are presented in
 
 ### *Thesis*
 
-Contains the paper in a pdf format (TBA).
+Contains the manuscript as a pdf.
 
 ## Ethics:
 
