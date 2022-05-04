@@ -165,7 +165,6 @@ A <- combined_BF %>%
   ylim(-800, 200) +
   geom_hline(yintercept = 2.9, linetype = 2) + 
   theme(legend.position="none", text = element_text(family = "CM")) +
-  stat_summary(fun.y=mean, geom="point", shape=23, size=4) +
   labs(y = TeX('$log(BF_{0u})$'), x = TeX('$R^2_m$'), color = TeX('$R^2_m$'),
        title = TeX('$N_{level-1}$ = 400, 1 predictor')) +
   annotate("text", x=1, y= -700, label= TeX("$N_{eff}$ = 99"), size =3) +
@@ -181,7 +180,6 @@ B <- combined_BF %>%
   ylim(-800, 200) +
   geom_hline(yintercept = 2.9, linetype = 2) + 
   theme(legend.position="none", text = element_text(family = "CM")) +
-  stat_summary(fun.y=mean, geom="point", shape=23, size=4) +
   labs(y = TeX('$log(BF_{0u})$'), x = TeX('$R^2_m$'), color = TeX('$R^2_m$'),
        title = TeX('$N_{level-1}$ = 400, 2 predictors')) +
   annotate("text", x=1, y= -700, label= TeX("$N_{eff}$ = 194"), size =3) +
@@ -198,7 +196,6 @@ C <- combined_BF %>%
   ylim(-800, 200) +
   geom_hline(yintercept = 2.9, linetype = 2) + 
   theme(legend.position="none", text = element_text(family = "CM")) +
-  stat_summary(fun.y=mean, geom="point", shape=23, size=4) +
   labs(y = TeX('$log(BF_{0u})$'), x = TeX('$R^2_m$'), color = TeX('$R^2_m$'),
        title = TeX('$N_{level-1}$ = 3200, 1 predictor')) +
   annotate("text", x=1, y= -700, label= TeX("$N_{eff}$ = 967"), size =3) +
@@ -215,7 +212,6 @@ D <- combined_BF %>%
   ylim(-800, 200) +
   geom_hline(yintercept = 2.9, linetype = 2) + 
   theme(legend.position="none", text = element_text(family = "CM")) +
-  stat_summary(fun.y=mean, geom="point", shape=23, size=4) +
   labs(y = TeX('$log(BF_{0u})$'), x = TeX('$R^2_m$'), color = TeX('$R^2_m$'),
        title = TeX('$N_{level-1}$ = 3200, 2 predictors')) +
   annotate("text", x=1, y= -700, label= TeX("$N_{eff}$ = 895"), size =3) +
@@ -309,7 +305,6 @@ A <- combined_BF.REML %>%
   ylim(-800, 200) +
   geom_hline(yintercept = 2.9, linetype = 2) + 
   theme(legend.position="none", text = element_text(family = "CM")) +
-  stat_summary(fun.y=mean, geom="point", shape=23, size=4) +
   labs(y = TeX('$log(BF_{0u})$'), x = TeX('$R^2_m$'), color = TeX('$R^2_m$'),
        title = TeX('$N_{level-1}$ = 400, 1 predictor')) +
   annotate("text", x=1, y= -700, label= TeX("$N_{eff}$ = 99"), size =3) +
@@ -325,7 +320,6 @@ B <- combined_BF.REML %>%
   ylim(-800, 200) +
   geom_hline(yintercept = 2.9, linetype = 2) + 
   theme(legend.position="none", text = element_text(family = "CM")) +
-  stat_summary(fun.y=mean, geom="point", shape=23, size=4) +
   labs(y = TeX('$log(BF_{0u})$'), x = TeX('$R^2_m$'), color = TeX('$R^2_m$'),
        title = TeX('$N_{level-1}$ = 400, 2 predictors')) +
   annotate("text", x=1, y= -700, label= TeX("$N_{eff}$ = 194"), size =3) +
@@ -341,7 +335,6 @@ C <- combined_BF.REML %>%
   ylim(-800, 200) +
   geom_hline(yintercept = 2.9, linetype = 2) + 
   theme(legend.position="none", text = element_text(family = "CM")) +
-  stat_summary(fun.y=mean, geom="point", shape=23, size=4) +
   labs(y = TeX('$log(BF_{0u})$'), x = TeX('$R^2_m$'), color = TeX('$R^2_m$'),
        title = TeX('$N_{level-1}$ = 3200, 1 predictor')) +
   annotate("text", x=1, y= -700, label= TeX("$N_{eff}$ = 967"), size =3) +
@@ -358,7 +351,6 @@ D <- combined_BF.REML %>%
   ylim(-800, 200) +
   geom_hline(yintercept = 2.9, linetype = 2) + 
   theme(legend.position="none", text = element_text(family = "CM")) +
-  stat_summary(fun.y=mean, geom="point", shape=23, size=4) +
   labs(y = TeX('$log(BF_{0u})$'), x = TeX('$R^2_m$'), color = TeX('$R^2_m$'),
        title = TeX('$N_{level-1}$ = 3200, 2 predictors')) +
   annotate("text", x=1, y= -700, label= TeX("$N_{eff}$ = 895"), size =3) +
