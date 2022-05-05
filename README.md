@@ -120,7 +120,8 @@ Contains the manuscript as a pdf.
 
 ## Ethics:
 
-All the data is simulated. The research protocol has been approved by the Ethics Committee of the Faculty of Social and Behavioural Sciences at Utrecht University
+All the data is simulated. The research protocol has been approved by the Ethical Review Board of the Faculty of Social and Behavioural Sciences of
+Utrecht University.
 
 
 ## Notes: 
