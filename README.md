@@ -44,7 +44,7 @@ note only run the scripts that are explicitly mentioned in order to obtain the s
  
     - `jref-example.R` 
     
-    (there is no output saved from this script in the `Output` folder, you can see the results directly in the console)
+    (there is no output saved from this script in the `Output` folder, you can see the results directly from the console)
        
  - **5.simulation:**
    
