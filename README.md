@@ -9,7 +9,7 @@ Department of Methodology and Statistics, Utrecht University, the Netherlands.
 
 ## Introduction 
 
-This paper proposes a default Bayes Factor with clear operating characteristics that can be used for testing whether the fixed effects of two-level models are equal to zero. This is achieved by generalizing an already existing approach for linear regression, presented in Hoijtink (2021). Since the specification of the scaling parameter of the prior distribution for this Bayes Factor includes the value for the sample size (Gu et al., 2018), a new estimator for the effective sample size in two-level models containing random slopes is proposed and subsequently used throughout the paper. For detailed examples on how to use and interpret this BF as well as a step-by-step calculation of the new effective sample size, please see [this](https://www.nikolasekulovski.com/tutorials/) vignette.
+This paper proposes a default Bayes Factor with clear operating characteristics that can be used for testing whether the fixed effects of linear two-level models are equal to zero. This is achieved by generalizing an already existing approach for linear regression, presented in Hoijtink (2021). Since the specification of the scaling parameter of the prior distribution for this Bayes Factor includes the value for the sample size (Gu et al., 2018), a new estimator for the effective sample size in two-level models containing random slopes is proposed and subsequently used throughout the paper. For detailed examples on how to use and interpret this BF as well as a step-by-step calculation of the new effective sample size, please see [this](https://www.nikolasekulovski.com/tutorials/) vignette.
 
 ## Content:
 
