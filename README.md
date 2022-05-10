@@ -18,11 +18,11 @@ All the data used within the paper is either simulated within the respective `R`
 ### *Scripts*
 
 The `R` scripts within each separate folder should be run in the specified order given here. Please
-note only run the scripts that are explicitly mentioned in order to obtain the same results as the ones stored in the `Output` folder. In other words, the additional scripts are usually `R` functions that are sourced within the main scripts. The ordering of the subfolders within this folder corresponds to the ordering of the sections within the paper. Please note, it takes around 10-30 seconds to calculate the effective sample size based on the newly proposed approach (depending on the complexity of the model and the number of level-1 observations).
+note only run the scripts that are explicitly mentioned in order to obtain the same results like the ones stored in the `Output` folder. In other words, the additional scripts are usually `R` functions that are sourced within the main scripts. The ordering of the subfolders within this folder corresponds to the ordering of the sections within the paper. Please note, that it takes around 10-30 seconds to calculate the effective sample size based on the newly proposed approach (depending on the complexity of the model and the number of level-1 observations).
 
  - **1.data**
  
-    - `data.R` - illustrates all the different simulated data sets used throughout the paper . This is the script mentioned in the Data section of the paper (the data sets correspond to those given in Figure 1).
+    - `data.R` - illustrates all the different simulated data sets used throughout the paper. This is the script mentioned in the Data section of the paper (the data sets correspond to those given in Figure 1).
 
  - **2.effective_sample_size:**
    
@@ -62,7 +62,7 @@ note only run the scripts that are explicitly mentioned in order to obtain the s
     
     - `simulation-BFs-different-sample-sizes.R`
     
-    - `simulation-summaries-different-samle-sizes.R`
+    - `simulation-summaries-different-sample-sizes.R`
     
       Produces:
       
@@ -79,7 +79,7 @@ note only run the scripts that are explicitly mentioned in order to obtain the s
       
   - **6.examples**
     
-    - `examples.R` prints the results tiven in the example section including the estimates in Table 3 (not saved as a `.csv`).
+    - `examples.R` prints the results given in the example section including the estimates in Table 3 (not saved as a `.csv`).
   
     
     
@@ -91,7 +91,7 @@ note only run the scripts that are explicitly mentioned in order to obtain the s
 
 ### *Output* contains all `csv` files produced by the code given in the `scripts` folder:
 
-   - `effectve-sample-size.csv` contains the results presented in the Table 1;
+   - `effectve-sample-size.csv` contains the results presented in Table 1;
    - `sensitivity.csv` contains the results from the sensitivity analysis presented in Figure 3;
    - `combined_BF.csv` contains the results from the simulation study plotted in Figures 4 and 5 (using FML est. and MI-based N_eff);
    - `simulation-FML.csv` contains the average BF, fit and complexity along with a 95% interval for each of the 16 categories calculated using FML and N = MI-based N_eff (not presented in the thesis, but included such that researchers can easily check the results);
@@ -126,7 +126,7 @@ Utrecht University.
 
 ## Notes: 
 
-If you wish to use the Wrapper function, please use **only** the `wrapper_function.R` script, which contains the tested and ready-to use version of the function. Currently this version can apply overall data standardization, and uses the sample size of either the level-1 observations, level-2 observations or the effective sample size, calculated based on the ICC approach, or a sample size provided by the user. The wrapper can also implement the value for jref, based on this paper. In the future the novel method for calculating the effective sample size, might be included.
+If you wish to use the Wrapper function, please use **only** the `wrapper_function.R` script, which contains the tested and ready-to-use version of the function. Currently, this version can apply overall data standardization and uses the sample size of either the level-1 observations, level-2 observations or the effective sample size, calculated based on the ICC approach, or a sample size provided by the user. The wrapper can also implement the value for jref, based on this paper. In the future, the novel method for calculating the effective sample size might be included.
 
 ## References:
 
