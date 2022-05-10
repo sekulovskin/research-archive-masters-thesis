@@ -115,7 +115,7 @@ This folder contains the programmed wrapper function around `bain`, for testing 
 
 ### *Postprocessing*
 
-Contains the script that are necessary to obtain the plots that are presented in the paper.
+Contains the script that is necessary to obtain the plots presented in the paper.
 
 ### *Thesis*
 
