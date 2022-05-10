@@ -3,6 +3,7 @@
 ***A Default Bayes Factor for testing Null Hypotheses about the Fixed Effects of Linear Two-level Models***
 
 *Author:* Nikola Sekulovski 
+
 *Supervisor:* Prof. Dr. Herbert Hoijtink
 
 Department of Methodology and Statistics, Utrecht University, the Netherlands.
