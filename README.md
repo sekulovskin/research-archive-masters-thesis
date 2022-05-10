@@ -11,7 +11,7 @@ Department of Methodology and Statistics, Utrecht University, the Netherlands.
 
 ## Introduction 
 
-This paper proposes a default Bayes Factor with clear operating characteristics that can be used for testing whether the fixed effects of linear two-level models are equal to zero. This is achieved by generalizing an already existing approach for linear regression, presented in Hoijtink (2021). Since the specification of the scaling parameter of the prior distribution for this Bayes Factor includes the value for the sample size (Gu et al., 2018), a new estimator for the effective sample size in two-level models containing random slopes is proposed and subsequently used throughout the paper. For detailed examples on how to use and interpret this BF as well as a step-by-step calculation of the new effective sample size, please see [this](https://www.nikolasekulovski.com/tutorials/) vignette.
+The paper proposes a default Bayes Factor with clear operating characteristics that can be used for testing whether the fixed effects of linear two-level models are equal to zero. This is achieved by generalising an already existing approach for linear regression, presented in Hoijtink (2021). Since the specification of the scaling parameter of the prior distribution for this Bayes Factor includes the value for the sample size (Gu et al., 2018), a new estimator for the effective sample size in two-level models containing random slopes is proposed and subsequently used throughout the paper. For detailed examples on how to use the `wrapper function` for the `R` package [`bain`](https://cran.r-project.org/web/packages/bain/vignettes/Introduction_to_bain.html) and interpret this BF as well as a step-by-step calculation of the new effective sample size, please see [this](https://www.nikolasekulovski.com/tutorials/) vignette.
 
 ## Content:
 
@@ -50,30 +50,30 @@ note only run the scripts that are explicitly mentioned in order to obtain the s
        
  - **5.simulation:**
    
-    - `simulation-data.R`
+    - 1. `simulation-data.R`
     
-    - `simulation-mi-neff.R`
+    - 2. `simulation-mi-neff.R`
   
-    - `simulation-BFs-FML.R`
+    - 3. `simulation-BFs-FML.R`
     
-    - `simulation-summaries-FML.R`
+    - 4. `simulation-summaries-FML.R`
       
       Produces:
       
       `combined_BF.scv`; `simulation-FML.csv` 
     
-    - `simulation-BFs-different-sample-sizes.R`
+    - 5. `simulation-BFs-different-sample-sizes.R`
     
-    - `simulation-summaries-different-sample-sizes.R`
+    - 6. `simulation-summaries-different-sample-sizes.R`
     
       Produces:
       
       `combined_nlvl1.csv`; `combined_nlvl2.csv`; `combined_n-icc.csv`; `simulation_nlvl1.csv`, `simulation_nlvl2.csv`, `simulation_n-icc.csv`
       
     
-    - `simulation-BFs-REML.R`
+    - 7. `simulation-BFs-REML.R`
     
-    - `simulation-summaries-RMLE.R`
+    - 8. `simulation-summaries-RMLE.R`
     
        Produces: 
       
