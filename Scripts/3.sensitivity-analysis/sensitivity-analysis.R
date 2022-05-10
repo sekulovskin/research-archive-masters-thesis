@@ -31,8 +31,8 @@ y <-  b1 * X1 + b2 * X2 + u_0 + u_1*X1 + u_2*X2  + epsilon
 data <- data.frame(y, group, X1, X2)
 
 lmer_model <- lmer(y ~ X1 + X2 + (X1 + X2 | group), REML = FALSE, data = data)
-summ(lmer_model)
-
+summ(lmer_model) # inspect R^2-m
+summary(lmer_model)
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 #Sensitivity Analysis
 #+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

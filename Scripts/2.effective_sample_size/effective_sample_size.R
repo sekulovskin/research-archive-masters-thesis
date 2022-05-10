@@ -155,13 +155,12 @@ results <- rjags::coda.samples(model = model.def, variable.names = parameters, n
 summary(results)
 summary(lmer_model1) #compare with lmer
 
-# Get the precisions in terms of variances:
+# Get the random effects in terms of variances:
 
 1/11.32082  #intercept var
 1/105.88326 #slope 1 var
 1/39.79075  #slope 2 var
-1/2.74561   #residual var
-
+1/2.74561 #residual var
 #+++++++++++++++++++++++++++++++++++++++++++++
 #Calculate the effective sample size
 #++++++++++++++++++++++++++++++++++++++++++++

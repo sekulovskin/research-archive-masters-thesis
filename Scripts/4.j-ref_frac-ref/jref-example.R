@@ -47,8 +47,8 @@ sigma_f  <- var(y_hat)
 Pseudo_Rsq_fixed <- (sigma_f)/(sigma_f + sigma_u0 + sigma_u1 + sigma_u2 + sigma_e)
 Pseudo_Rsq_fixed
 
-#sample size (equal to the calculated effective sample size, see `Effective_sample_size.R`)
-N_eff <- 1165
+# sample size (equal to the calculated effective sample size, see `sensitivity-analysis.R`)
+N_eff <- 921
 M <- 2
 
 #Calculate J_ref and fracref 
