@@ -17,7 +17,7 @@ For detailed examples on how to use the `wrapper function` for the `R` package [
 
 ## Content:
 
-All the data used within the paper is either simulated within the respective `R` scripts or openly available from `R` packages.
+All the data used in the paper is either simulated within the respective `R` scripts or openly available from `R` packages.
 
 ### *Scripts*
 
