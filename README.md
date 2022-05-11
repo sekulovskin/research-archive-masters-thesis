@@ -41,7 +41,7 @@ The `R` scripts within each separate folder should be run in the specified order
     
         Produces:
     
-    - `sensitivity.csv` , and the estimates presented in Table 2 of the paper (not saved as a `.csv`)
+    - `sensitivity.csv` , and the parameter estimates presented in Table 2 of the paper (not saved as a `.csv`)
     
  - **4.j-ref_frac-ref:**
  
