@@ -25,7 +25,7 @@ The `R` scripts within each separate folder should be run in the specified order
 
  - **1.data**
  
-    - `data.R` - illustrates all the different simulated data sets used throughout the paper. This is the script mentioned in the Data section of the paper (the data sets correspond to those given in Figure 1).
+    - `data.R` - illustrates all the different simulated data sets used throughout the paper.
 
  - **2.effective_sample_size:**
    
