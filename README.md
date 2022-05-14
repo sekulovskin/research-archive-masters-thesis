@@ -133,7 +133,7 @@ If you wish to use the Wrapper function, please use **only** the `wrapper_functi
 
 ## Errata:
 
-- **Page 6**, Equation 5 BF_01
+- **Page 6**, Equation 5: BF_01
 
 *should read*
 
