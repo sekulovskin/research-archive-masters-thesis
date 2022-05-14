@@ -119,7 +119,7 @@ Contains the script that is necessary to obtain the plots presented in the paper
 
 ### *Thesis*
 
-Contains the manuscript as a `pdf`.
+Contains the manuscript as a `pdf`(most up-to-date version, including the corrected errors listed in the Errata)
 
 ## Ethics:
 
