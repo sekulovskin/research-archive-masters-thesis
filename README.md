@@ -17,7 +17,7 @@ For detailed examples on how to use the `wrapper function` for the `R` package [
 
 ## Content:
 
-All the data used within the paper is either simulated within the respective `R` scripts or openly available from `R` packages.
+All the data used in the paper is either simulated within the respective `R` scripts or openly available from `R` packages.
 
 ### *Scripts*
 
@@ -25,7 +25,7 @@ The `R` scripts within each separate folder should be run in the specified order
 
  - **1.data**
  
-    - `data.R` - illustrates all the different simulated data sets used throughout the paper. This is the script mentioned in the Data section of the paper (the data sets correspond to those given in Figure 1).
+    - `data.R` - illustrates all the different simulated data sets used throughout the paper.
 
  - **2.effective_sample_size:**
    
@@ -41,7 +41,7 @@ The `R` scripts within each separate folder should be run in the specified order
     
         Produces:
     
-    - `sensitivity.csv` , and the model fit presented in Table 2 of the paper (not saved as a `.csv`)
+    - `sensitivity.csv` , and the parameter estimates presented in Table 2 of the paper (not saved as a `.csv`)
     
  - **4.j-ref_frac-ref:**
  
@@ -123,7 +123,7 @@ Contains the manuscript as a `pdf`.
 
 ## Ethics:
 
-All the data is simulated. The research protocol has been approved by the Ethical Review Board of the Faculty of Social and Behavioural Sciences of
+All the data is simulated or openly available. The research protocol has been approved by the Ethical Review Board of the Faculty of Social and Behavioural Sciences of
 Utrecht University.
 
 
