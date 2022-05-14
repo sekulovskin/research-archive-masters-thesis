@@ -131,6 +131,14 @@ Utrecht University.
 
 If you wish to use the Wrapper function, please use **only** the `wrapper_function.R` script, which contains the tested and ready-to-use version of the function. Currently, this version can apply overall data standardization and uses the sample size of either the level-1 observations, level-2 observations or the effective sample size, calculated based on the ICC approach, or a sample size provided by the user. The wrapper can also implement the value for `jref`, based on this paper. In the future, the novel method for calculating the effective sample size might be included.
 
+## Errata:
+
+- **Page 6**, Equation 5 BF_01
+
+*should read*
+
+BF_0u
+
 ## References:
 
  - Gu, X., Mulder, J., & Hoijtink, H. (2018). Approximated adjusted fractional bayes factors: A general
