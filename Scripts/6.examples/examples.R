@@ -25,7 +25,7 @@ data("tutorial")
 head(tutorial)
 
 # subset
-tutorial <- tutorial[, c(1,2,3,5)]
+# tutorial <- tutorial[, c(1,2,3,5)]
 
 # descriptives 
 descr(tutorial, stats = c("mean", "med", "sd", "min", "max"))
@@ -250,7 +250,7 @@ MI_N_eff  #MI_N_eff
 hypotheses <- "standlrt =  0; 
                standlrt > 0"
 
-BFs.1 <- bain_2lmer(model.1, hypotheses, standardize = F, N = MI_N_eff, seed = 123, jref = TRUE)
+BFs.1 <- bain_2lmer(model.1, hypotheses, standardize = F, N = "level-1", seed = 123, jref = TRUE)
 print(BFs.1)              
 
 #take the inverse of BF_ou
@@ -511,6 +511,15 @@ print(BFs.3)
 #incpect the fraction b
 BFs.3$b
 
+#take the inverse of BF_ou
+
+BFu0 <- 1/BFs.3[["fit"]]$BF[1]
+BFu0
+
+# Get BF_i0
+BF_iu <- BFs.3[["fit"]]$BF[2]/BFs.3[["fit"]]$BF[1]
+BF_iu
+
 #+++++++++++++++++++++++++++++++++
 #Example 4
 #+++++++++++++++++++++++++++++++++
@@ -550,5 +559,38 @@ print(BFs.4)
 BFs.4$b
 
 #calculate BF_ui
-BF_0i.2 <- BFs.4[["fit"]]$BF[1]/BFs.4[["fit"]]$BF[2]
-BF_0i.2
+BF_0i.3 <- BFs.4[["fit"]]$BF[1]/BFs.4[["fit"]]$BF[2]
+BF_0i.3
+
+
+#+++++++++++++++++++++++++++++++++++++++++++++
+#Example 5 - adding a cross-level interaction
+#++++++++++++++++++++++++++++++++++++++++++++
+#+
+#Simulate the same data set with the null being true ----------------------------
+
+
+# Fit lmer model 
+model.5 <- lmer(normexam ~ standlrt + avslrt + standlrt:avslrt + (standlrt | school), REML = FALSE, data = tutorial.3)
+
+# inspect the model
+summary(model.5)
+
+#inspect the R^2_m
+summ(model.5)
+
+
+#calculate the BF (using the ICC-based effective sample size)
+
+hypotheses <- "standlrt = avslrt =0;
+               standlrt = avslrt = standlrt:avslrt = 0;
+               standlrt > 0 & avslrt > 0 & standlrt:avslrt > 0"
+
+BFs.5 <- bain_2lmer(model.5, hypotheses, standardize = F, N = "ICC_effective", seed = 123, jref = TRUE)
+print(BFs.5)
+BFs.5$b
+
+#calculate the BF of the first null hypothesis against the second 
+BF_0102 <- BFs.5[["fit"]]$BF[1]/BFs.5[["fit"]]$BF[2]
+BF_0102
+

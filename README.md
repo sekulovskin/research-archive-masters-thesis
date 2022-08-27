@@ -80,6 +80,15 @@ The `R` scripts within each separate folder should be run in the specified order
       
       `combined_BF_REML.csv`; `simulation-REML.csv` 
       
+    - 10. `simulation-BF_99.R`
+    
+    - 11. `simulation-summaries-BF_99.R`
+    
+      Produces:
+      
+      `combined_BF_99.csv`; `simulation_BF_99.csv`
+      
+      
   - **6.examples**
     
     - `examples.R` prints the results given in the example section including the estimates in Table 3 (not saved as a `.csv`).
@@ -90,9 +99,12 @@ The `R` scripts within each separate folder should be run in the specified order
     
     - `mi-Neff_functions(L1).R` - functions that calculate the MI based effective sample size
     - `wrapper_function.R` - a copy of the wrapper function
+    - `wrapper_function_BF_99.R` - a copy of the wrapper function that calculates BFs with the condition (BF = 99, when effect size is zero)
   
 
 ### *Output* contains all `csv` files produced by the code given in the `scripts` folder:
+
+* Note the files stating `simulation_...` represent additional Tables that give nice summaries of the results presented in the Figures of the paper.
 
    - `effectve-sample-size.csv` contains the results presented in Table 1;
    - `sensitivity.csv` contains the results from the sensitivity analysis presented in Figure 3;
@@ -101,12 +113,14 @@ The `R` scripts within each separate folder should be run in the specified order
    -  `combined_nlvl1.csv` contains the results from the second part of the simulation study (using FML est. and N = number of level 1 observations);
    -  `combined_nlvl2.csv` contains the results from the second part of the simulation study (using FML est. and N = number of level 2 observations);
    -  `combined_n-icc.csv` contains the results from the second part of the simulation study (using FML est. and N = ICC-based N_eff);
+    -  `combined_BF_99.csv` contains the results from the third part of the simulation study where it is required for the BF = 99 when the effect size is zero.
    
    - `simulation_nlvl1.csv` contains the average BF, fit and complexity along with a 95% interval for each of the 16 categories calculated using FML and N = number of level 1 observations (not presented in the thesis, but included such that researchers can easily check the results);
    - `simulation_nlvl2.csv` contains the average BF, fit and complexity along with a 95% interval for each of the 16 categories calculated using FML and N = number of level 2 observations (not presented in the thesis, but included such that researchers can easily check the results);
    - `simulation_n-icc.csv` contains the average BF, fit and complexity along with a 95% interval for each of the 16 categories calculated using FML and N = ICC-based N_eff (not presented in the thesis, but included such that researchers can easily check the results);
    -  `combined_BF_REML.csv` contains the results from the simulation study plotted in Figures 6 and 7 (using REML est. and MI-based N_eff);
-   -  `simulation-RMLE.ccv` contains the average BF, fit and complexity along with a 95% interval for each of the 16 categories calculated using REML and N = MI-based N_eff (not presented in the thesis, but included such that researchers can easily check the results);
+   -  `simulation-RMLE.csv` contains the average BF, fit and complexity along with a 95% interval for each of the 16 categories calculated using REML and N = MI-based N_eff (not presented in the thesis, but included such that researchers can easily check the results);
+   - `simulation_BF_99.csv` contains the average BF, fit and complexity along with a 95% interval for each of the 16 categories calculated by requiring BF = 99 when the effect size is zero and using REML and N = MI-based N_eff (not presented in the thesis, but included such that researchers can easily check the results);
    
  
 ### *Wrapper_function*

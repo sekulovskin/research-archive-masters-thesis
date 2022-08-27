@@ -7,9 +7,6 @@ library(latex2exp)
 library(dplyr)
 library(grid)
 
-#Set font
-font_add(family = "CM", regular = "CENTURY.ttf")
-showtext_auto()
 
 #======================================
 #Sensitivity Analysis
@@ -84,6 +81,10 @@ combined_BF.REML <- read.csv("combined_BF_REML.csv")
 combined_BF.REML$rsq <- as.factor(combined_BF.REML$rsq)
 combined_BF.REML$setting <- as.factor(combined_BF.REML$setting)
 
+# Using BF = 99
+combined_BF_99 <- read.csv("combined_BF_99.csv")
+combined_BF_99$rsq <- as.factor(combined_BF_99$rsq)
+combined_BF_99$setting <- as.factor(combined_BF_99$setting)
 #----------------------------
 #Figure 4
 
@@ -362,4 +363,111 @@ ggarrange(A, B, C, D,
           labels = c("", "", "", ""),
           ncol = 2, nrow = 2, common.legend = TRUE)
 
+
+
+#----------------------------
+# Figure 8
+
+combined_BF_99 <- read.csv("combined_BF_99.csv")
+combined_BF_99$rsq <- as.factor(combined_BF_99$rsq)
+combined_BF_99$setting <- as.factor(combined_BF_99$setting)
+
+
+A <- combined_BF_99 %>%
+  filter(setting == "N = 400, 1 predictor") %>%
+  ggplot(aes(y = BF, x = rsq, color = rsq)) +
+  geom_boxplot() +
+  geom_hline(yintercept = 1, linetype = 2) + 
+  theme_classic() +
+  ylim(-5, 99) +
+  theme(legend.position="none", text = element_text(family = "CM")) +
+  labs(y = TeX('$BF_{0u}$'), x = TeX('$R^2_m$'), color = TeX('$R^2_m$'),
+       title = TeX('$N_{level-1}$ = 400, 1 predictor'))
+
+B <- combined_BF_99 %>%
+  filter(setting == "N = 400, 2 predictors") %>%
+  ggplot(aes(y = BF, x = rsq, color = rsq)) +
+  geom_boxplot() +
+  geom_hline(yintercept = 1, linetype = 2) + 
+  theme_classic() +
+  ylim(-5, 99) +
+  theme(legend.position="none", text = element_text(family = "CM")) +
+  labs(y = TeX('$BF_{0u}$'), x = TeX('$R^2_m$'), color = TeX('$R^2_m$'),
+       title = TeX('$N_{level-1}$ = 400, 2 predictors'))
+
+C <- combined_BF_99 %>%
+  filter(setting == "N = 3200, 1 predictor") %>%
+  ggplot(aes(y = BF, x = rsq, color = rsq)) +
+  geom_hline(yintercept = 1, linetype = 2) + 
+  geom_boxplot() +
+  geom_hline(yintercept = 1, linetype = 2) + 
+  theme_classic() +
+  ylim(-5, 99) +
+  theme(legend.position="none", text = element_text(family = "CM")) +
+  labs(y = TeX('$BF_{0u}$'), x = TeX('$R^2_m$'), color = TeX('$R^2_m$'),
+       title = TeX('$N_{level-1}$ = 3200, 1 predictor'))
+
+D <- combined_BF_99 %>%
+  filter(setting == "N = 3200, 2 predictors") %>%
+  ggplot(aes(y = BF, x = rsq, color = rsq)) +
+  geom_boxplot() +
+  geom_hline(yintercept = 1, linetype = 2) + 
+  theme_classic() +
+  ylim(-5, 99) +
+  theme(legend.position="none", text = element_text(family = "CM")) +
+  labs(y = TeX('$BF_{0u}$'), x = TeX('$R^2_m$'), color = TeX('$R^2_m$'),
+       title = TeX('$N_{level-1}$ = 3200, 2 predictors')) 
+ggarrange(A, B, C, D,
+          labels = c("", "", "", ""),
+          ncol = 2, nrow = 2, common.legend = TRUE)
+
+#-------------------
+# Figure 9
+
+A <- combined_BF_99 %>%
+  filter(setting == "N = 400, 1 predictor") %>%
+  ggplot(aes(y = BFlog, x = rsq, color = rsq)) +
+  geom_boxplot() +
+  theme_classic() +
+  ylim(-800, 200) +
+  geom_hline(yintercept = 4.6, linetype = 2) + 
+  theme(legend.position="none", text = element_text(family = "CM")) +
+  labs(y = TeX('$log(BF_{0u})$'), x = TeX('$R^2_m$'), color = TeX('$R^2_m$'),
+       title = TeX('$N_{level-1}$ = 400, 1 predictor')) 
+
+B <- combined_BF_99 %>%
+  filter(setting == "N = 400, 2 predictors") %>%
+  ggplot(aes(y = BFlog, x = rsq, color = rsq)) +
+  geom_boxplot() +
+  theme_classic() +
+  ylim(-800, 200) +
+  geom_hline(yintercept = 4.6, linetype = 2) + 
+  theme(legend.position="none", text = element_text(family = "CM")) +
+  labs(y = TeX('$log(BF_{0u})$'), x = TeX('$R^2_m$'), color = TeX('$R^2_m$'),
+       title = TeX('$N_{level-1}$ = 400, 2 predictors')) 
+
+C <- combined_BF_99 %>%
+  filter(setting == "N = 3200, 1 predictor") %>%
+  ggplot(aes(y = BFlog, x = rsq, color = rsq)) +
+  geom_boxplot() +
+  theme_classic() +
+  ylim(-800, 200) +
+  geom_hline(yintercept = 4.6, linetype = 2) + 
+  theme(legend.position="none", text = element_text(family = "CM")) +
+  labs(y = TeX('$log(BF_{0u})$'), x = TeX('$R^2_m$'), color = TeX('$R^2_m$'),
+       title = TeX('$N_{level-1}$ = 3200, 1 predictor')) 
+
+D <- combined_BF_99 %>%
+  filter(setting == "N = 3200, 2 predictors") %>%
+  ggplot(aes(y = BFlog, x = rsq, color = rsq)) +
+  geom_boxplot() +
+  theme_classic() +
+  ylim(-800, 200) +
+  geom_hline(yintercept = 4.6, linetype = 2) + 
+  theme(legend.position="none", text = element_text(family = "CM")) +
+  labs(y = TeX('$log(BF_{0u})$'), x = TeX('$R^2_m$'), color = TeX('$R^2_m$'),
+       title = TeX('$N_{level-1}$ = 3200, 2 predictors')) 
+ggarrange(A, B, C, D,
+          labels = c("", "", "", ""),
+          ncol = 2, nrow = 2, common.legend = TRUE)
 
