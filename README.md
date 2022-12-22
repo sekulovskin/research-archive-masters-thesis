@@ -34,7 +34,13 @@ The `R` scripts within each separate folder should be run in the specified order
     
        Produces:
     
-    - `effectve-sample-size.csv`, and the parameter estimates presented in Table 4 of the paper (not saved as a `.csv`)
+    - `effectve-sample-size.csv`, and the parameter estimates presented in Table 5 of the paper (not saved as a `.csv`)
+    
+     - `additional_explanation.R`
+    
+       Produces:
+    
+    - `Table_2.txt` 
 
  - **3.sensitivity-analysis:**
     
@@ -42,7 +48,7 @@ The `R` scripts within each separate folder should be run in the specified order
     
         Produces:
     
-    - `sensitivity.csv` , and the parameter estimates presented in Table 2 of the paper (not saved as a `.csv`)
+    - `sensitivity.csv` , and the parameter estimates presented in Table 3 of the paper (not saved as a `.csv`)
     
  - **4.j-ref_frac-ref:**
  
@@ -92,7 +98,7 @@ The `R` scripts within each separate folder should be run in the specified order
       
   - **6.examples**
     
-    - `examples.R` prints the results given in the example section including the estimates in Table 3 (not saved as a `.csv`).
+    - `examples.R` prints the results given in the example section including the estimates in Table 4 (not saved as a `.csv`).
   
     
     
@@ -108,6 +114,7 @@ The `R` scripts within each separate folder should be run in the specified order
 * Note the files stating `simulation_...` represent additional Tables that give nice summaries of the results presented in the Figures of the paper.
 
    - `effectve-sample-size.csv` contains the results presented in Table 1;
+   - `Table_2.txt` containts the results presented in Table ;
    - `sensitivity.csv` contains the results from the sensitivity analysis presented in Figure 3;
    - `combined_BF.csv` contains the results from the simulation study plotted in Figures 4 and 5 (using FML est. and MI-based N_eff);
    - `simulation-FML.csv` contains the average BF, fit and complexity along with a 95% interval for each of the 16 categories calculated using FML and N = MI-based N_eff (not presented in the thesis, but included such that researchers can easily check the results);
@@ -132,9 +139,9 @@ This folder contains the programmed wrapper function around `bain`, for testing 
 
 Contains the script that is necessary to obtain the plots presented in the paper.
 
-### *Thesis*
+### *Manuscript*
 
-Contains the manuscript as a `pdf`(most up-to-date version, including the corrected errors listed in the Errata)
+Contains the manuscript as a `pdf`(most up-to-date version)
 
 ## Ethics:
 
@@ -146,13 +153,6 @@ Utrecht University.
 
 If you wish to use the Wrapper function, please use **only** the `wrapper_function.R` script, which contains the tested and ready-to-use version of the function. Currently, this version can apply overall data standardization and uses the sample size of either the level-1 observations, level-2 observations or the effective sample size, calculated based on the ICC approach, or a sample size provided by the user. The wrapper can also implement the value for `jref`, based on this paper. In the future, the novel method for calculating the effective sample size might be included.
 
-## Errata:
-
-- **Page 6**, Equation 5: BF_01
-
-*should read*
-
-BF_0u
 
 ## References:
 
