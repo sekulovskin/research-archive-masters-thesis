@@ -1,0 +1,20 @@
+$`Random intercept(.03)`
+              B matrix    Gamma N-eff
+estimates 0.0001284151 0.519814  1537
+
+$`Full (.03)`
+                B matrix      B matrix     B matrix     Gamma N-eff
+intercepts  2.519114e-04 -6.923816e-06 0.0001175494 0.6152171  1231
+slopes1    -6.923816e-06  2.112017e-04 0.0001202932 0.6152171  1231
+slopes2     1.175494e-04  1.202932e-04 0.0006531403 0.6152171  1231
+
+$`Random intercept(.19)`
+             B matrix     Gamma N-eff
+estimates 0.001075546 0.9011041   316
+
+$`Full (.19)`
+                B matrix      B matrix     B matrix     Gamma N-eff
+intercepts  1.388299e-03 -4.097845e-05 0.0001407005 0.6845892  1009
+slopes1    -4.097845e-05  2.169847e-04 0.0001279334 0.6845892  1009
+slopes2     1.407005e-04  1.279334e-04 0.0005455632 0.6845892  1009
+
