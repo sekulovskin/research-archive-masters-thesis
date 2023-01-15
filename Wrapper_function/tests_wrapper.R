@@ -514,7 +514,7 @@ b <- bain(estimates, hypotheses, n = N, Sigma = cov,
 
 test_that("Scenario 6", {expect_equal(w$fit, b$fit, tolerance = .001)})
 
-# Test passed
+# Test passed 
 
 ##Scenario 7: standardized data  & N = effective sample size (ICC)--------------
 w <- bain_2lmer(x, hypotheses, 
@@ -540,7 +540,8 @@ b <- bain(estimates, hypotheses, n = N_eff_ICC, Sigma = cov,
 
 test_that("Scenario 7", {expect_equal(w$fit, b$fit, tolerance = .01)}) 
 
-# Test passed (but tolerance increased from 0.001 to 0.01)
+# Test passed (but tolerance increased from 0.001 to 0.01) - re run it seperately 
+# if it shows that test has not passed
 
 ##Scenario 8: standardized data  & N = specifised by the user--------------
 N_user <- 1000
