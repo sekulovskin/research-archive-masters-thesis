@@ -3,7 +3,7 @@
 
 ***A Default Bayes Factor for testing Null Hypotheses about the Fixed Effects of Linear Two-level Models***
 
-**The paper has been accepted for publication in [Psychological Methods](https://www.apa.org/pubs/journals/met) on 9.1.2023, a doi code and reference will follow soon.**
+The paper is published in [Psychological Methods](https://www.apa.org/pubs/journals/met) and can be cited as: Sekulovski, N., & Hoijtink, H. (2023). A default Bayes factor for testing null hypotheses about the fixed effects of linear two-level models. *Psychological Methods*. Advance online publication. [https://doi.org/10.1037/met0000573](https://doi.org/10.1037/met0000573)
 
 *Author:* Nikola Sekulovski 
 
